@@ -12,8 +12,13 @@ class BytebankApp extends StatelessWidget {
           title: Text('Dashboard'),
         ),
         body: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Image.asset('images/bytebank_logo.png'),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Image.asset('images/bytebank_logo.png'),
+            ),
             Container(
               height: 120,
               width: 100,
