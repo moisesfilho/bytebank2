@@ -22,6 +22,7 @@ class BytebankApp extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Container(
+                padding: EdgeInsets.all(8.0),
                 height: 100,
                 width: 150,
                 color: Colors.green,
@@ -29,8 +30,16 @@ class BytebankApp extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Icon(Icons.people),
-                    Text('Contacts')
+                    Icon(
+                      Icons.people,
+                      color: Colors.white,
+                    ),
+                    Text(
+                      'Contacts',
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
+                    )
                   ],
                 ),
               ),
