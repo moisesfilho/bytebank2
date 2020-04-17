@@ -1,5 +1,7 @@
+import 'package:bytebank/screens/contacts_list.dart';
 import 'package:flutter/material.dart';
 
+import 'screens/contacts_form.dart';
 import 'screens/dashboard.dart';
 
 void main() => runApp(BytebankApp());
@@ -16,7 +18,7 @@ class BytebankApp extends StatelessWidget {
             buttonColor: Colors.blueAccent[700],
             textTheme: ButtonTextTheme.primary,
           )),
-      home: Dashboard()
+      home: ContactsForm()
     );
   }
 }
