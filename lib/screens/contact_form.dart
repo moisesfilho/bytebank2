@@ -2,12 +2,12 @@ import 'package:bytebank/database/app_database.dart';
 import 'package:bytebank/models/contact.dart';
 import 'package:flutter/material.dart';
 
-class ContactsForm extends StatefulWidget {
+class ContactForm extends StatefulWidget {
   @override
-  _ContactsFormState createState() => _ContactsFormState();
+  _ContactFormState createState() => _ContactFormState();
 }
 
-class _ContactsFormState extends State<ContactsForm> {
+class _ContactFormState extends State<ContactForm> {
   final TextEditingController _nameController = TextEditingController();
 
   final TextEditingController _accountNumberController =
@@ -55,7 +55,6 @@ class _ContactsFormState extends State<ContactsForm> {
                     final String name = _nameController.text;
                     final int accountNumber =
                         int.tryParse(_accountNumberController.text);
-
                     final Contact newContact = Contact(0, name, accountNumber);
                     save(newContact).then((id) => Navigator.pop(context));
                   },

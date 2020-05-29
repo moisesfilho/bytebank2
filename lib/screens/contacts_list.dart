@@ -1,6 +1,6 @@
 import 'package:bytebank/database/app_database.dart';
 import 'package:bytebank/models/contact.dart';
-import 'package:bytebank/screens/contacts_form.dart';
+import 'package:bytebank/screens/contact_form.dart';
 import 'package:flutter/material.dart';
 
 class ContactsList extends StatelessWidget {
@@ -52,7 +52,7 @@ class ContactsList extends StatelessWidget {
           Navigator.of(context)
               .push(
                 MaterialPageRoute(
-                  builder: (context) => ContactsForm(),
+                  builder: (context) => ContactForm(),
                 ),
               );
         },
