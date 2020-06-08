@@ -16,9 +16,10 @@ class Dashboard extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: Image.asset('images/bytebank_logo.png'),
           ),
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-                      child: Row(
+          Container(
+            height: 120,
+            child: ListView(
+              scrollDirection: Axis.horizontal,
               children: <Widget>[
                 _FeatureItem(
                   'Transfer',
@@ -26,11 +27,6 @@ class Dashboard extends StatelessWidget {
                   onClick: () {
                     _showContactsList(context);
                   },
-                ),
-                _FeatureItem(
-                  'Transaction Feed',
-                  Icons.description,
-                  onClick: () => print("transction feed was clicked"),
                 ),
                 _FeatureItem(
                   'Transaction Feed',
@@ -75,7 +71,6 @@ class _FeatureItem extends StatelessWidget {
           onTap: () => onClick(),
           child: Container(
             padding: EdgeInsets.all(8.0),
-            height: 100,
             width: 150,
             color: Theme.of(context).primaryColor,
             child: Column(
