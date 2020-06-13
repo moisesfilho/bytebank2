@@ -1,7 +1,11 @@
+import 'package:bytebank/http/webClient.dart';
 import 'package:flutter/material.dart';
 import 'screens/dashboard.dart';
 
-void main() => runApp(BytebankApp());
+void main() {
+  runApp(BytebankApp());
+  findAll();
+} 
 
 class BytebankApp extends StatelessWidget {
   // This widget is the root of your application.
