@@ -20,7 +20,7 @@ Future<List<Transaction>> findAll() async {
       Contact(
         0,
         contactJson['name'],
-        contactJson['accountName'],
+        contactJson['accountNumber'],
       ),
     );
     transactions.add(transaction);
