@@ -23,33 +23,34 @@ class TransactionsList extends StatelessWidget {
               break;
             case ConnectionState.done:
               final List<Transaction> transactions = snaphot.data;
-              return ListView.builder(
-                itemBuilder: (context, index) {
-                  final Transaction transaction = transactions[index];
-                  return Card(
-                    child: ListTile(
-                      leading: Icon(Icons.monetization_on),
-                      title: Text(
-                        transaction.value.toString(),
-                        style: TextStyle(
-                          fontSize: 24.0,
-                          fontWeight: FontWeight.bold,
+              if (transactions.isNotEmpty) {
+                return ListView.builder(
+                  itemBuilder: (context, index) {
+                    final Transaction transaction = transactions[index];
+                    return Card(
+                      child: ListTile(
+                        leading: Icon(Icons.monetization_on),
+                        title: Text(
+                          transaction.value.toString(),
+                          style: TextStyle(
+                            fontSize: 24.0,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        subtitle: Text(
+                          transaction.contact.accountNumber.toString(),
+                          style: TextStyle(
+                            fontSize: 16.0,
+                          ),
                         ),
                       ),
-                      subtitle: Text(
-                        transaction.contact.accountNumber.toString(),
-                        style: TextStyle(
-                          fontSize: 16.0,
-                        ),
-                      ),
-                    ),
-                  );
-                },
-                itemCount: transactions.length,
-              );
-              break;
-
+                    );
+                  },
+                  itemCount: transactions.length,
+                );
+              }
               return Text('Unknow error');
+              break;
           }
         },
       ),
