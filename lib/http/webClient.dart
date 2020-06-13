@@ -8,8 +8,12 @@ import 'package:http_interceptor/http_interceptor.dart';
 Future<List<Transaction>> findAll() async {
   final Client client =
       HttpClientWithInterceptor.build(interceptors: [LoggingInterceptor()]);
-  final Response response =
-      await client.get('http://192.168.0.113:8080/transactions');
+  final Response response = await client
+      .get('http://192.168.0.113:8080/transaction')
+      .timeout(Duration(seconds: 5));
+  if (response.statusCode != 200) {
+    return null;
+  }
   final List<dynamic> decodedJson = jsonDecode(response.body);
   final List<Transaction> transactions = List();
 
