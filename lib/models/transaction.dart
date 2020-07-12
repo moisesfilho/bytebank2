@@ -1,5 +1,9 @@
 import 'contact.dart';
+import 'package:json_annotation/json_annotation.dart';
 
+part 'transaction.g.dart';
+
+@JsonSerializable(explicitToJson: true)
 class Transaction {
   final double value;
   final Contact contact;
@@ -9,11 +13,8 @@ class Transaction {
     this.contact,
   );
 
-  Transaction.fromJson(Map<String, dynamic> json)
-      : value = json['value'],
-        contact = Contact.fromJson(json['contact']);
-
-  Map<String, dynamic> toJson() => {'value': value, 'contact': contact.toJson()};
+  factory Transaction.fromJson(Map<String, dynamic> json) => _$TransactionFromJson(json);
+  Map<String, dynamic> toJson() => _$TransactionToJson(this);
 
   @override
   String toString() {
