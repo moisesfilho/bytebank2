@@ -5,16 +5,14 @@ import 'package:bytebank/models/transaction.dart';
 import 'package:http/http.dart';
 import 'package:http_interceptor/http_interceptor.dart';
 
-import 'logging_interceptor.dart';
+import 'interceptors/logging_interceptor.dart';
 
-final Client client =
-    HttpClientWithInterceptor.build(interceptors: [LoggingInterceptor()]);
+final Client client = HttpClientWithInterceptor.build(interceptors: [LoggingInterceptor()]);
 
 const String baseUrl = 'http://192.168.25.113:8080/transactions';
 
 Future<List<Transaction>> findAll() async {
-  final Response response =
-      await client.get(baseUrl).timeout(Duration(seconds: 5));
+  final Response response = await client.get(baseUrl).timeout(Duration(seconds: 5));
   if (response.statusCode != 200) {
     return null;
   }
@@ -40,10 +38,7 @@ Future<List<Transaction>> findAll() async {
 Future<Transaction> save(Transaction transaction) async {
   final Map<String, dynamic> transactionMap = {
     'value': transaction.value,
-    'contact': {
-      'name': transaction.contact.name,
-      'accountNumber': transaction.contact.accountNumber
-    }
+    'contact': {'name': transaction.contact.name, 'accountNumber': transaction.contact.accountNumber}
   };
 
   final String transactionJson = jsonEncode(transactionMap);
