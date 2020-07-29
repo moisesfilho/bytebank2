@@ -8,6 +8,7 @@ part of 'transaction.dart';
 
 Transaction _$TransactionFromJson(Map<String, dynamic> json) {
   return Transaction(
+    json['id'] as String,
     (json['value'] as num)?.toDouble(),
     json['contact'] == null
         ? null
@@ -17,6 +18,7 @@ Transaction _$TransactionFromJson(Map<String, dynamic> json) {
 
 Map<String, dynamic> _$TransactionToJson(Transaction instance) =>
     <String, dynamic>{
+      'id': instance.id,
       'value': instance.value,
       'contact': instance.contact?.toJson(),
     };
