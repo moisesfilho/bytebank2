@@ -30,4 +30,18 @@ void main() {
     final nameTransactionFeedFeatureItem = find.widgetWithText(FeatureItem, 'Transaction Feed');
     expect(nameTransactionFeedFeatureItem, findsOneWidget);
   });
+
+  testWidgets('should display the transfer feature when the dashboard is opened', (tester) async {
+    await tester.pumpWidget(MaterialApp(home: Dashboard()));
+    final transferFeatureItem = find.byWidgetPredicate(
+        (widget) => widget is FeatureItem && widget.name == 'Transfer' && widget.icon == Icons.monetization_on);
+    expect(transferFeatureItem, findsOneWidget);
+  });
+
+  testWidgets('should display the transaction feed feature when the dashboard is opened', (tester) async {
+    await tester.pumpWidget(MaterialApp(home: Dashboard()));
+    final transactionFeedFeatureItem = find.byWidgetPredicate(
+        (widget) => widget is FeatureItem && widget.name == 'Transaction Feed' && widget.icon == Icons.description);
+    expect(transactionFeedFeatureItem, findsOneWidget);
+  });
 }
