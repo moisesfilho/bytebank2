@@ -3,7 +3,7 @@ class Contact {
   final String name;
   final int accountNumber;
 
-  Contact(this.id, this.name, this.accountNumber);
+  Contact(this.id, this.name, this.accountNumber) : assert(name != null && accountNumber != null && accountNumber > 0);
 
   Contact.fromJson(Map<String, dynamic> json)
       : id = json['id'],
