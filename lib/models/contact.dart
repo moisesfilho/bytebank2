@@ -14,4 +14,14 @@ class Contact {
 
   @override
   String toString() => 'Contatc(id: $id, name: $name, accountNumber: $accountNumber)';
+
+  @override
+  bool operator ==(Object o) {
+    if (identical(this, o)) return true;
+
+    return o is Contact && o.name == name && o.accountNumber == accountNumber;
+  }
+
+  @override
+  int get hashCode => id.hashCode ^ name.hashCode ^ accountNumber.hashCode;
 }
