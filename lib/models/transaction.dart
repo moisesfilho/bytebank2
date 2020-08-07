@@ -1,5 +1,6 @@
-import 'contact.dart';
 import 'package:json_annotation/json_annotation.dart';
+
+import 'contact.dart';
 
 part 'transaction.g.dart';
 
@@ -18,4 +19,14 @@ class Transaction {
   String toString() {
     return 'Transaction{id: $id, value: $value, contact: $contact}';
   }
+
+  @override
+  bool operator ==(Object o) {
+    if (identical(this, o)) return true;
+
+    return o is Transaction && o.value == value && o.contact == contact;
+  }
+
+  @override
+  int get hashCode => id.hashCode ^ value.hashCode ^ contact.hashCode;
 }
